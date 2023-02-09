@@ -1,6 +1,5 @@
 import faker from "@faker-js/faker";
 import app from "app";
-import { object } from "joi";
 import supertest from "supertest";
 import { createConsole } from "../factories/consoles-factory";
 import { cleanDb } from "../helpers";
