@@ -71,6 +71,13 @@ describe("POST /consoles", () => {
     expect(result.status).toBe(409);
   });
 
+  it("Should respond status 422 if console name is in an invalid format", async () => {
+    const result = await api.post("/consoles").send({ name: 1223 });
+
+    expect(result.status).toBe(422);
+
+  });
+
   it("Should respond status 201 if the console was successfully created in the database", async () => {
     const consoleName = faker.name.firstName();
 
