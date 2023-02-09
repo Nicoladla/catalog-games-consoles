@@ -74,7 +74,6 @@ describe("POST /consoles", () => {
     const result = await api.post("/consoles").send({ name: 1223 });
 
     expect(result.status).toBe(422);
-
   });
 
   it("Should respond status 201 if the console was successfully created in the database", async () => {
