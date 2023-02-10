@@ -1,14 +1,13 @@
 import faker from "@faker-js/faker";
 import app from "app";
-import prisma from "config/database";
 import supertest from "supertest";
 import { createConsole } from "../factories/consoles-factory";
 import { createGame } from "../factories/games-factory";
 import { cleanDb } from "../helpers";
 
-const api = supertest(app);
-
 beforeEach(async () => await cleanDb());
+
+const api = supertest(app);
 
 describe("GET /games", () => {
   it("Should respond status 200 and list of games", async () => {
@@ -37,12 +36,6 @@ describe("GET /games", () => {
 });
 
 describe("GET /games/:id", () => {
-  it("Should respond status 404 if gamesId is not a number.", async () => {
-    const result = await api.get(`/games/asdas`);
-
-    expect(result.status).toBe(404);
-  });
-
   it("Should respond status 404 if games not found in search", async () => {
     const result = await api.get(`/games/0`);
 

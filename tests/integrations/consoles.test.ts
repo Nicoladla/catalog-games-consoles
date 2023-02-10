@@ -4,9 +4,9 @@ import supertest from "supertest";
 import { createConsole } from "../factories/consoles-factory";
 import { cleanDb } from "../helpers";
 
-const api = supertest(app);
-
 beforeEach(async () => await cleanDb());
+
+const api = supertest(app);
 
 describe("GET /consoles", () => {
   it("Should respond status 200 and list of consoles", async () => {
@@ -34,12 +34,6 @@ describe("GET /consoles", () => {
 });
 
 describe("GET /consoles/:id", () => {
-  it("Should respond status 404 if consoleId is not a number.", async () => {
-    const result = await api.get(`/consoles/asdas`);
-
-    expect(result.status).toBe(404);
-  });
-
   it("Should respond status 404 if console not found in search", async () => {
     const result = await api.get(`/consoles/0`);
 

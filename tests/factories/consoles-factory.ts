@@ -1,8 +1,8 @@
 import faker from "@faker-js/faker";
 import prisma from "config/database";
 
-export async function createConsole() {
-  return await prisma.console.create({
+export function createConsole() {
+  return prisma.console.create({
     data: {
       name: faker.name.firstName(),
     },

@@ -5,7 +5,7 @@ import { createConsole } from "./consoles-factory";
 export async function createGame() {
   const consoleCreated = await createConsole();
 
-  return await prisma.game.create({
+  return prisma.game.create({
     data: {
       title: faker.name.firstName(),
       consoleId: consoleCreated.id,

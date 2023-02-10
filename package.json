@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/server.ts",
-    "test": "npx dotenv -e .env.test npx jest -- --forceExit"
+    "test": "NODE_ENV=test jest -i --forceExit",
+    "coverage": "npm rum test --coverage"
   },
   "keywords": [],
   "author": "",
